@@ -1,0 +1,86 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="A simple place to create, organize, search, and manage your notes."
+  >
+  <title>QuickNotes | Your notes, organized</title>
+</head>
+<body>
+  <header>
+    <h1>QuickNotes</h1>
+    <p>Capture your thoughts and keep them organized.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="create-note-heading">
+      <h2 id="create-note-heading">Create a note</h2>
+
+      <form id="note-form">
+        <div>
+          <label for="note-title">Title</label>
+          <input
+            type="text"
+            id="note-title"
+            name="title"
+            placeholder="Give your note a title"
+            maxlength="80"
+            required
+          >
+        </div>
+
+        <div>
+          <label for="note-content">Note</label>
+          <textarea
+            id="note-content"
+            name="content"
+            rows="5"
+            placeholder="Write your note here..."
+            required
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="note-category">Category</label>
+          <select id="note-category" name="category" required>
+            <option value="personal">Personal</option>
+            <option value="school">School</option>
+            <option value="work">Work</option>
+            <option value="ideas">Ideas</option>
+          </select>
+        </div>
+
+        <button type="submit">Add note</button>
+        <p id="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Your notes</h2>
+
+      <div>
+        <label for="note-search">Search notes</label>
+        <input
+          type="search"
+          id="note-search"
+          name="search"
+          placeholder="Search by title or content"
+        >
+      </div>
+
+      <p id="notes-count">Notes: 0</p>
+      <p id="empty-state">No notes yet. Add your first note above.</p>
+      <ul id="notes-list" aria-label="Notes list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>QuickNotes — simple notes, neatly organized.</p>
+  </footer>
+</body>
+</html>
+```
