@@ -1,0 +1,261 @@
+
+/* ========================================
+   QuickNotes — Base styles
+======================================== */
+
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --background: #f5f7fb;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --success: #15803d;
+  --danger: #dc2626;
+  --radius: 12px;
+  --shadow: 0 4px 16px rgba(31, 41, 55, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ========================================
+   Header
+======================================== */
+
+header {
+  padding: 40px 20px;
+  background: var(--primary);
+  color: #ffffff;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.2;
+}
+
+header p {
+  margin: 0;
+  color: #e0e7ff;
+}
+
+/* ========================================
+   Main layout and sections
+======================================== */
+
+main {
+  width: min(100% - 32px, 900px);
+  margin: 36px auto;
+  flex: 1;
+}
+
+section {
+  margin-bottom: 28px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+section h2 {
+  margin: 0 0 22px;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+/* ========================================
+   Forms and input fields
+======================================== */
+
+#note-form > div {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* ========================================
+   Buttons
+======================================== */
+
+button {
+  display: inline-block;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}
+
+/* ========================================
+   Form feedback and search
+======================================== */
+
+#form-message {
+  margin: 12px 0 0;
+  color: var(--success);
+}
+
+#note-search {
+  margin-bottom: 18px;
+}
+
+#notes-count {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   Notes list and empty state
+======================================== */
+
+#notes-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#notes-list:empty {
+  display: none;
+}
+
+#notes-list li {
+  min-width: 0;
+  padding: 18px;
+  overflow-wrap: anywhere;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+#empty-state {
+  padding: 24px 16px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ========================================
+   Footer
+======================================== */
+
+footer {
+  padding: 22px 16px;
+  background: #111827;
+  color: #d1d5db;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Responsive layout
+======================================== */
+
+@media (max-width: 600px) {
+  header {
+    padding: 30px 16px;
+  }
+
+  main {
+    width: calc(100% - 24px);
+    margin: 20px auto;
+  }
+
+  section {
+    padding: 20px 16px;
+    margin-bottom: 20px;
+  }
+
+  section h2 {
+    font-size: 1.25rem;
+  }
+
+  #notes-list {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}
